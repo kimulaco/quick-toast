@@ -14,6 +14,9 @@ export class PizzaToast {
   @State() isShow: boolean = false
 
   @Prop() time: number = 3000
+  @Prop() autoHidden: boolean = false
+  @Prop() noCloseButton: boolean = false
+  @Prop() closeButtonText: string = 'Close'
 
   @Method() show(
     {title, message, time} = {title: '', message: '', time: undefined}
@@ -23,18 +26,21 @@ export class PizzaToast {
     this.title = title ? title : ''
     this.message = message ? message : ''
 
-    this.timer = setTimeout (() => {
-      if (this.isShow) {
-        this.hide()
-        this.timer = null
-      }
-    }, time || this.time)
+    if (this.autoHidden) {
+      this.timer = setTimeout (() => {
+        if (this.isShow) {
+          this.hide()
+          this.timer = null
+        }
+      }, time || this.time)
+    }
 
     return Promise.resolve()
   }
 
   @Method() hide(): Promise<void> {
     this.isShow = false
+    clearTimeout()
     this.timer = null
     return Promise.resolve()
   }
@@ -54,8 +60,9 @@ export class PizzaToast {
       <button
         class="PizzaToast__close"
         type="button"
+        title={this.closeButtonText}
         onClick={(): void => {this.hide()}}
-      >Close</button>
+      >{this.closeButtonText}</button>
     </div>;
   }
 }

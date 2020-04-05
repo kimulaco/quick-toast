@@ -7,7 +7,10 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface PizzaToast {
+        "autoHidden": boolean;
+        "closeButtonText": string;
         "hide": () => Promise<void>;
+        "noCloseButton": boolean;
         "show": ({ title, message, time }?: {
             title: string;
             message: string;
@@ -29,6 +32,9 @@ declare global {
 }
 declare namespace LocalJSX {
     interface PizzaToast {
+        "autoHidden"?: boolean;
+        "closeButtonText"?: string;
+        "noCloseButton"?: boolean;
         "time"?: number;
     }
     interface IntrinsicElements {
