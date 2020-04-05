@@ -1,7 +1,8 @@
 {
-  "name": "pizza-toast",
+  "name": "quick-toast",
   "version": "0.0.1",
-  "description": "Stencil Component Starter",
+  "description": "Easy and flexible toast UI Web Components library.",
+  "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "es2015": "dist/esm/index.mjs",
@@ -9,7 +10,7 @@
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/pizza-toast/pizza-toast.js",
+  "unpkg": "dist/quick-toast/quick-toast.js",
   "files": [
     "dist/",
     "loader/"
@@ -23,6 +24,5 @@
   },
   "devDependencies": {
     "@stencil/core": "^1.12.2"
-  },
-  "license": "MIT"
+  }
 }
