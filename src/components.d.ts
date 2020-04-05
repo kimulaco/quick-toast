@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface PizzaToast {
+    interface QuickToast {
         "autoHidden": boolean;
         "closeButtonText": string;
         "hide": () => Promise<void>;
@@ -20,32 +20,32 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLPizzaToastElement extends Components.PizzaToast, HTMLStencilElement {
+    interface HTMLQuickToastElement extends Components.QuickToast, HTMLStencilElement {
     }
-    var HTMLPizzaToastElement: {
-        prototype: HTMLPizzaToastElement;
-        new (): HTMLPizzaToastElement;
+    var HTMLQuickToastElement: {
+        prototype: HTMLQuickToastElement;
+        new (): HTMLQuickToastElement;
     };
     interface HTMLElementTagNameMap {
-        "pizza-toast": HTMLPizzaToastElement;
+        "quick-toast": HTMLQuickToastElement;
     }
 }
 declare namespace LocalJSX {
-    interface PizzaToast {
+    interface QuickToast {
         "autoHidden"?: boolean;
         "closeButtonText"?: string;
         "noCloseButton"?: boolean;
         "time"?: number;
     }
     interface IntrinsicElements {
-        "pizza-toast": PizzaToast;
+        "quick-toast": QuickToast;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "pizza-toast": LocalJSX.PizzaToast & JSXBase.HTMLAttributes<HTMLPizzaToastElement>;
+            "quick-toast": LocalJSX.QuickToast & JSXBase.HTMLAttributes<HTMLQuickToastElement>;
         }
     }
 }

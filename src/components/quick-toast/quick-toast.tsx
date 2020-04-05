@@ -1,8 +1,8 @@
 import { Component, Prop, State, Method, h } from '@stencil/core';
 
 @Component({
-  tag: 'pizza-toast',
-  styleUrl: 'pizza-toast.css',
+  tag: 'quick-toast',
+  styleUrl: 'quick-toast.css',
   shadow: true
 })
 
