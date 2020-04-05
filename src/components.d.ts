@@ -7,18 +7,13 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface PizzaToast {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+        "hide": () => Promise<void>;
+        "show": ({ title, message, time }?: {
+            title: string;
+            message: string;
+            time: any;
+        }) => Promise<void>;
+        "time": number;
     }
 }
 declare global {
@@ -34,18 +29,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface PizzaToast {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+        "time"?: number;
     }
     interface IntrinsicElements {
         "pizza-toast": PizzaToast;

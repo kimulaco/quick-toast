@@ -1,3 +1,7 @@
-:host {
+.PizzaToast {
+  display: none;
+}
+
+.PizzaToast.--show {
   display: block;
 }

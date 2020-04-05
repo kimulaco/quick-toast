@@ -1,20 +1,37 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-  <title>Stencil Component Starter</title>
-
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>PizzaToast</title>
   <script type="module" src="/build/pizza-toast.esm.js"></script>
   <script nomodule src="/build/pizza-toast.js"></script>
-
 </head>
 <body>
+  <pizza-toast id="toast"></pizza-toast>
 
-  <pizza-toast
-    first="Stencil"
-    last="'Don't call me a framework' JS"
-  ></pizza-toast>
+  <button id="show" type="button">show</button>
 
+  <script>
+    const main = async () => {
+      try {
+        await customElements.whenDefined('pizza-toast')
+      } catch (error) {
+        return;
+      }
+
+      const toast = document.getElementById('toast')
+      const showBtn = document.getElementById('show')
+
+      showBtn.addEventListener('click', () => {
+        toast.show({
+          title: 'お知らせ',
+          message: 'お知らせしたいことがある'
+        })
+      })
+    }
+
+    main()
+  </script>
 </body>
 </html>
